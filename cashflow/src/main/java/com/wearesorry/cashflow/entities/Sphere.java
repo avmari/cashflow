@@ -1,10 +1,14 @@
 package com.wearesorry.cashflow.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Sphere {
 
     @Id
@@ -17,7 +21,6 @@ public class Sphere {
 
     private String name;
     private int amount;
-    private LocalDate date;
 
     public UUID getId() {
         return id;
@@ -49,13 +52,5 @@ public class Sphere {
 
     public void setAmount(int amount) {
         this.amount = amount;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
     }
 }

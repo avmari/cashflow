@@ -1,9 +1,15 @@
 package com.wearesorry.cashflow.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Transaction {
 
     @Id
@@ -17,6 +23,9 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "card_id", columnDefinition="uuid not null")
     private Card card;
+
+    private int amount;
+    private LocalDate date;
 
     public UUID getId() {
         return id;
@@ -50,6 +59,12 @@ public class Transaction {
         this.amount = amount;
     }
 
-    private int amount;
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
 }
