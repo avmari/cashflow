@@ -2,20 +2,19 @@ package com.wearesorry.cashflow.services;
 
 import com.wearesorry.cashflow.entities.Transaction;
 import com.wearesorry.cashflow.repositories.TransactionRepository;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
+@NoArgsConstructor
+@AllArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
     @Autowired
     private TransactionRepository transactionRepository;
-
-    TransactionServiceImpl(TransactionRepository transactionRepository){
-        this.transactionRepository = transactionRepository;
-    }
-    TransactionServiceImpl(){};
 
     @Override
     public Transaction save(Transaction transaction) {

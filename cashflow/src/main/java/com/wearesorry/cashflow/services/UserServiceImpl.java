@@ -2,20 +2,19 @@ package com.wearesorry.cashflow.services;
 
 import com.wearesorry.cashflow.entities.User;
 import com.wearesorry.cashflow.repositories.UserRepository;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
-
-    UserServiceImpl(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
-    UserServiceImpl(){};
 
     @Override
     public User save(User user) {

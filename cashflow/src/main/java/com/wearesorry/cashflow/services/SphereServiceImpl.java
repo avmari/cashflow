@@ -2,20 +2,19 @@ package com.wearesorry.cashflow.services;
 
 import com.wearesorry.cashflow.entities.Sphere;
 import com.wearesorry.cashflow.repositories.SphereRepository;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
+@NoArgsConstructor
+@AllArgsConstructor
 public class SphereServiceImpl implements SphereService{
     @Autowired
     private SphereRepository sphereRepository;
-
-    SphereServiceImpl(SphereRepository sphereRepository){
-        this.sphereRepository = sphereRepository;
-    }
-    SphereServiceImpl(){};
 
     @Override
     public Sphere save(Sphere sphere) {

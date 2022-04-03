@@ -27,7 +27,7 @@ public class CashflowApplication {
 	CommandLineRunner runner(UserService userService, TransactionService transactionService, CardService cardService, SphereService sphereService) {
 		return args -> {
 			if(userService.canRegister("admin","admin@gmail.com")) {
-				User user1 = userService.save(
+				User user = userService.save(
 						new User(
 								UUID.randomUUID(),
 								"admin",
@@ -47,6 +47,8 @@ public class CashflowApplication {
 								0
 						)
 				);
+				if(i == 2)
+					userService.updateStatus(1, user.getId());
 				Card card = cardService.save(
 						new Card(
 								UUID.randomUUID(),
@@ -55,6 +57,8 @@ public class CashflowApplication {
 								10
 						)
 				);
+				if(i == 2)
+					cardService.updateAmount(1000, card.getId());
 				Sphere sphere = sphereService.save(
 						new Sphere(
 								UUID.randomUUID(),
@@ -63,6 +67,8 @@ public class CashflowApplication {
 								10
 						)
 				);
+				if(i == 1)
+					sphereService.updateAmount(300, sphere.getId());
 				Transaction transaction = transactionService.save(
 						new Transaction(
 								UUID.randomUUID(),
