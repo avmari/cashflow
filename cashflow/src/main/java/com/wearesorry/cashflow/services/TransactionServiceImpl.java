@@ -15,9 +15,17 @@ import java.util.UUID;
 public class TransactionServiceImpl implements TransactionService {
     @Autowired
     private TransactionRepository transactionRepository;
+    @Autowired
+    private CardService cardService;
+    @Autowired
+    private SphereService sphereService;
 
     @Override
     public Transaction save(Transaction transaction) {
+        if(transaction.getAmount() > transaction.getCard().getAmount())
+            return null;
+        cardService.updateAmount(-transaction.getAmount(), transaction.getCard().getId());
+        sphereService.updateAmount(transaction.getAmount(), transaction.getSphere().getId());
         return this.transactionRepository.save(transaction);
     }
 

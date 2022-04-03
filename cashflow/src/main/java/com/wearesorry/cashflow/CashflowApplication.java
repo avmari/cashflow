@@ -54,11 +54,9 @@ public class CashflowApplication {
 								UUID.randomUUID(),
 								user,
 								"card",
-								10
+								1000
 						)
 				);
-				if(i == 2)
-					cardService.updateAmount(1000, card.getId());
 				Sphere sphere = sphereService.save(
 						new Sphere(
 								UUID.randomUUID(),
@@ -67,8 +65,6 @@ public class CashflowApplication {
 								10
 						)
 				);
-				if(i == 1)
-					sphereService.updateAmount(300, sphere.getId());
 				Transaction transaction = transactionService.save(
 						new Transaction(
 								UUID.randomUUID(),

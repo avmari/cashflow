@@ -27,11 +27,6 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void deleteById(UUID id) {
-        this.userRepository.deleteById(id);
-    }
-
-    @Override
     public void updateStatus(int newStatus, UUID userId) {
         this.userRepository.updateStatus(newStatus, userId);
     }
