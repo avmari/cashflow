@@ -14,6 +14,6 @@ public interface TransactionRepository extends CrudRepository<Transaction, UUID>
     @Query("SELECT tr from Transaction tr where tr.sphere.id = :sphereId")
     Iterable<Transaction> getAllTransactionsBySphere(@Param("sphereId") UUID sphereId);
 
-    /*@Query("SELECT tr from Transaction tr where tr.card.id in (SELECT us.card.id from Users us where us.id = :userId)")
-    Iterable<Transaction> getAllTransactionsByUser(@Param("userId") UUID userId);*/
+    @Query("SELECT tr from Transaction tr where tr.card.id in (SELECT c.id from Card c where c.user.id = :userId)")
+    Iterable<Transaction> getAllTransactionsByUser(@Param("userId") UUID userId);
 }

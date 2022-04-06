@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.UUID;
 
 @SpringBootApplication
@@ -37,7 +38,7 @@ public class CashflowApplication {
 						)
 				);
 			}
-			for (int i = 0; i < 3; ++i){
+			/*for (int i = 0; i < 3; ++i){
 				User user = userService.save(
 						new User(
 								UUID.randomUUID(),
@@ -47,8 +48,9 @@ public class CashflowApplication {
 								0
 						)
 				);
-				if(i == 2)
+				if(i == 2){
 					userService.updateStatus(1, user.getId());
+				}
 				Card card = cardService.save(
 						new Card(
 								UUID.randomUUID(),
@@ -74,7 +76,7 @@ public class CashflowApplication {
 								LocalDate.now()
 						)
 				);
-			}
+			}*/
 		};
 	}
 
