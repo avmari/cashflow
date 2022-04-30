@@ -1,0 +1,12 @@
+.form-center {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-primary {
+    background-color: #00a86b;
+}
+

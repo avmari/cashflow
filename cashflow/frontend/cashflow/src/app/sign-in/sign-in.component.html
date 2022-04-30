@@ -1,6 +1,6 @@
 <div class="form-center">
     
-<h2>Log In</h2>
+<h2>Sign In</h2>
 <div style="margin-top: 30px;">
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -20,9 +20,9 @@
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Login
+            Sign in
         </button>
-        <a routerLink="/register" class="btn btn-link">Register</a>
+        <a routerLink="sign-up" class="btn btn-link">Register</a>
     </div>
 </form>
 </div>
