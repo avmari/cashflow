@@ -4,3 +4,7 @@ body, h1, h2{
     font-family: Arial;
     text-align: center;
 }
+
+.money-background {
+    background-image: url(/assets/money.jpg);
+}
