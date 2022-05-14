@@ -1,6 +1,7 @@
+<div class="money-background" style="height: 82%">
 <div class="form-center">
-    <h2>Sign Up</h2>
-    <div style="margin-top: 30px;">
+    <h1>Sign Up</h1>
+    <div style="margin-top: 15px;">
     <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="username">Username</label>
@@ -28,9 +29,9 @@
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                 Sign up
             </button>
-            <a routerLink="/sign-in" class="btn btn-link">Cancel</a>
+            <a routerLink="/sign-in" class="btn btn-primary" style="margin-left: 5px;">Cancel</a>
         </div>
     </form>
     </div>
 </div>
-<div class="money-background"></div>
+</div>
