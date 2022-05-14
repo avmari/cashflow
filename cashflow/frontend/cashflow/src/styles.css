@@ -2,11 +2,14 @@ body, h1, h2{
     margin: 0;
     padding: 0;
     font-family: Arial;
+    font-weight: bold;
     text-align: center;
 }
 
 .money-background {
     background-image: url(/assets/money.jpg);
+    background-repeat: repeat-x;
+    background-position: bottom;
 }
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
