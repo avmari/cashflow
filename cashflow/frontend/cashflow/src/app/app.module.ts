@@ -9,6 +9,7 @@ import { BudgetComponent } from './budget/budget.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AnalysisComponent } from './analysis/analysis.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SignInComponent,
     SignUpComponent,
     BudgetComponent,
-    AdministratorComponent
+    AdministratorComponent,
+    AnalysisComponent
   ],
   imports: [
     BrowserModule,
