@@ -14,7 +14,7 @@
   vertical-align:top;
 }
 .menu-main li:last-child:after {content: none;}
-.menu-main a {
+.menu-main a, .menu-main button {
   text-decoration: none;
   font-family: 'Ubuntu Condensed', sans-serif;
   letter-spacing: 2px;
@@ -25,11 +25,13 @@
   text-transform: uppercase;
   display: inline-block;
   transition: color .2s;
+  border: none;
+  background-color: transparent;
 }
-.menu-main a, .menu-main a:visited {color: #3b3b3b;}
-.menu-main a.current, .menu-main a:hover{color: #00a86b;}
-.menu-main a:before,
-.menu-main a:after {
+.menu-main a, .menu-main a:visited, .menu-main button {color: #3b3b3b; outline: none;}
+.menu-main a.current, .menu-main a:hover, .menu-main button.current, .menu-main button:hover {color: #00a86b;}
+.menu-main a:before, .menu-main button:before,
+.menu-main a:after, .menu-main button:after {
   content: "";
   position: absolute;
   height: 4px;
@@ -40,14 +42,14 @@
   background: #00a86b;
   transition: .8s;
 }
-.menu-main a:hover:before, .menu-main .current:before {left: 0;}
-.menu-main a:hover:after, .menu-main .current:after {right: 0;}   
+.menu-main a:hover:before, .menu-main button:hover:before, .menu-main .current:before {left: 0;}
+.menu-main a:hover:after, .menu-main button:hover:after, .menu-main .current:after {right: 0;}
 @media (max-width: 150px) {
 .menu-main {padding-top: 0;}
 .menu-main li {display: block;}
 .menu-main li:after {content: none;}
-.menu-main a {
-  padding: 25px 0 20px; 
+.menu-main a, .menu-main button{
+  padding: 25px 0 20px;
   margin: 0 30px;
 }
 }
@@ -62,7 +64,7 @@
   font-size: 17px;
 }
 
-.button {
+.button-content {
     margin-left: 40px;
     width: 70px;
     height: 70px;
@@ -72,14 +74,14 @@
     border: none;
 
   }
-  .button:hover {
+  .button-content:hover {
     box-shadow: inset 0 0 20px #015f3c9f,
     0 2px 0 rgba(255,255,255,.4),
     inset 0 2px 0 rgba(0,0,0,.1);
   }
- 
+
 .group{
-    display: inline-block;  
+    display: inline-block;
     text-align: center;
 }
 

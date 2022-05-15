@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogVipComponent } from '../dialog-vip/dialog-vip.component';
 
 @Component({
   selector: 'app-budget',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BudgetComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  createVIPDialog(){
+    let dialogRef = this.dialog.open(DialogVipComponent, {
+      height: '200px',
+      width: '600px',
+    });
+  }
+  
 }

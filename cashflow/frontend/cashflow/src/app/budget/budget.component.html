@@ -1,29 +1,29 @@
 
-<nav class="top-menu">
+<div class="top-menu">
     <ul class="menu-main">
-      <li><a href="" class="current">Budget</a></li>
-      <li><a href="">Analisys</a></li>
-      <li><a href="">VIP</a></li>
-      <li><a href="">Sign out</a></li>
+      <li><a routerLink="/budget" class="current">Budget</a></li>
+      <li><a routerLink="/analysis">Analysis</a></li>
+      <li><button (click)="createVIPDialog()">VIP</button></li>
+      <li><a routerLink="">Sign out</a></li>
     </ul>
-  </nav>
+</div>
 
 
 <div style="text-align: left; margin-top: 40px;">
 <div class="group">
-    <button class="button">
+    <button class="button-content">
         <mat-icon>credit_card</mat-icon>
     </button>
     <div style="margin-left: 40px;margin-top: 10px;">Card</div>
 </div> 
 <div class="group">
-    <button class="button">
+    <button class="button-content">
         <mat-icon>add</mat-icon>
     </button>
     <div style="margin-left: 40px;margin-top: 10px;">Add card</div>
 </div> 
 <div class="group">
-    <button class="button">
+    <button class="button-content">
         <mat-icon>account_balance_wallet</mat-icon>
     </button>
         <div style="margin-left: 40px; margin-top: 10px;">Wallet</div>
@@ -37,55 +37,55 @@
 
 <div style="text-align: left; margin-top: 50px;">
     <div class="group">
-        <button class="button">
+        <button class="button-content">
             <mat-icon>shopping_basket</mat-icon>
         </button>
         <div style="margin-left: 40px;margin-top: 10px;">Food</div>
     </div> 
     <div class="group">
-        <button class="button">
+        <button class="button-content">
             <mat-icon>home</mat-icon>
         </button>
         <div style="margin-left: 40px;margin-top: 10px;">Home</div>
     </div>
     <div class="group">
-        <button class="button">
+        <button class="button-content">
             <mat-icon>directions_car</mat-icon>
         </button>
         <div style="margin-left: 40px;margin-top: 10px;">Car</div>
     </div>
     <div class="group">
-        <button class="button">
+        <button class="button-content">
             <mat-icon>spa</mat-icon>
         </button>
         <div style="margin-left: 40px;margin-top: 10px;">Self care</div>
     </div>
     <div class="group">
-        <button class="button">
+        <button class="button-content">
             <mat-icon>computer</mat-icon>
         </button>
         <div style="margin-left: 40px;margin-top: 10px;">Technic</div>
     </div>
     <div class="group">
-        <button class="button">
+        <button class="button-content">
             <mat-icon>pets</mat-icon>
         </button>
         <div style="margin-left: 40px;margin-top: 10px;">Pet</div>
     </div>
     <div class="group">
-        <button class="button">
+        <button class="button-content">
             <mat-icon>star</mat-icon>
         </button>
         <div style="margin-left: 40px;margin-top: 10px;">Entertainment</div>
     </div>
     <div class="group">
-        <button class="button">
+        <button class="button-content">
             <mat-icon>more_horiz</mat-icon>
         </button>
         <div style="margin-left: 40px;margin-top: 10px;">More</div>
     </div> 
     <div class="group">
-        <button class="button">
+        <button class="button-content">
             <mat-icon>add</mat-icon>
         </button>
         <div style="margin-left: 40px;margin-top: 10px;">Add sphere</div>
