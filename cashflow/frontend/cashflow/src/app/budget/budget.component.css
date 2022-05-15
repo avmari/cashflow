@@ -52,6 +52,15 @@
 }
 }
 
+.text{
+  margin-top: 40px;
+  margin-left: 40px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 17px;
+}
+
 .button {
     margin-left: 40px;
     width: 70px;
@@ -59,6 +68,7 @@
     background: #00a86b;
     cursor: pointer;
     border-radius: 50%;
+    border: none;
 
   }
   .button:hover {
@@ -72,11 +82,4 @@
     text-align: center;
 }
 
-.text{
-    margin-top: 40px;
-    margin-left: 40px;
-    font-family: 'Ubuntu Condensed', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 17px;
-}
+
