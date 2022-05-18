@@ -10,12 +10,15 @@ import { AdministratorComponent } from './administrator/administrator.component'
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogVipComponent } from './dialog-vip/dialog-vip.component';
-import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { CreateCardComponent } from './create-card/create-card.component';
+import { CreateSphereComponent } from './create-sphere/create-sphere.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -26,10 +29,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     BudgetComponent,
     AdministratorComponent,
     AnalysisComponent,
-    DialogVipComponent
+    DialogVipComponent,
+    CreateCardComponent,
+    CreateSphereComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
     MatIconModule,

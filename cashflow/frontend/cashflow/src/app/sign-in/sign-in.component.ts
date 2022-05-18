@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from '../models/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,10 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignInComponent implements OnInit {
   loginForm: FormGroup;
-  submitted = false;
-  loading = false;
+  loginFailed = false;
   
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, public userService: UserService, 
+    private router: Router) { 
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.email],
       password: ['', Validators.required]
@@ -22,15 +25,30 @@ export class SignInComponent implements OnInit {
     
   }
 
-  get f() { return this.loginForm.controls; }
+
+  get login() {
+    return this.loginForm.get("email");
+  }
+
+  get password() {
+    return this.loginForm.get("password");
+  }
+
 
   onSubmit(){
-    this.submitted = true;
+    let user: User = new User();
+    user.email = this.login?.value;
+    user.password = this.password?.value;
 
-    if (this.loginForm.invalid) {
-        return;
-    }
-
-
+    this.userService.signIn(user).subscribe(
+      (data: any) => {
+        this.userService.currUser = data;
+        this.router.navigateByUrl("/budget");
+      },
+      (error: any) =>{
+        console.log(error);
+        this.loginFailed = true;
+      }
+    );
   }
 }

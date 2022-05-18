@@ -2,7 +2,7 @@
 <h2 mat-dialog-title>Do you want to become a VIP?</h2>
 
 <mat-dialog-actions class="div-button">
-    <button class="button btn-lg">Become a VIP</button>
+    <button class="button btn-lg" (click)="this.userService.becomeVIP()" [mat-dialog-close]="true">Become a VIP</button>
     <button class="button btn-close" [mat-dialog-close]="true">Close</button>
 </mat-dialog-actions>
 </div>

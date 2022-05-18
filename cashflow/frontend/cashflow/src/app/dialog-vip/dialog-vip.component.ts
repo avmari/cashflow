@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-dialog-vip',
@@ -8,7 +9,7 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class DialogVipComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DialogVipComponent>) { }
+  constructor(public dialogRef: MatDialogRef<DialogVipComponent>, public userService: UserService) { }
 
   ngOnInit(): void {
   }

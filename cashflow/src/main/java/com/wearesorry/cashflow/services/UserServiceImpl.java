@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -31,6 +32,16 @@ public class UserServiceImpl implements UserService{
         this.userRepository.updateStatus(newStatus, userId);
     }
 
+    @Override
+    public Optional<User> findByEmail(String email){
+        return this.userRepository.findByEmail(email);
+    }
+
+    @Override
+    public Optional<User> getUser(UUID userId){
+        return this.userRepository.findById(userId);
+    }
+
     public boolean canRegister(String name, String email) {
         if (!userRepository.findByName(name).isEmpty()) {
             return false;
@@ -40,4 +51,5 @@ public class UserServiceImpl implements UserService{
         }
         return true;
     }
+
 }
