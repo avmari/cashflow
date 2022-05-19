@@ -2,7 +2,7 @@
     <ul class="menu-main">
       <li><a routerLink="/budget">Budget</a></li>
       <li><a routerLink="/analysis" class="current">Analysis</a></li>
-      <li><button (click)="createVIPDialog()">VIP</button></li>
+      <li *ngIf="this.userService.currUser?.status != 1"><button (click)="createVIPDialog()">VIP</button></li>
       <li><a routerLink="">Sign out</a></li>
     </ul>
 </div>

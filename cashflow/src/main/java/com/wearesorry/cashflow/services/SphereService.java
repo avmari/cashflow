@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public interface SphereService {
     Sphere save(Sphere sphere);
-    Iterable<Sphere> getAllUsersSpheres(UUID userId);
+    Iterable<Sphere> getAllUserSpheres(UUID userId);
     void deleteById(UUID id);
     void updateAmount(int amount, UUID sphereId);
 }

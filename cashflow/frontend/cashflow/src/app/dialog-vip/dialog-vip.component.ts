@@ -8,10 +8,17 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./dialog-vip.component.css']
 })
 export class DialogVipComponent implements OnInit {
+  userStatus?: number;
 
-  constructor(public dialogRef: MatDialogRef<DialogVipComponent>, public userService: UserService) { }
+  constructor(public dialogRef: MatDialogRef<DialogVipComponent>, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userStatus = this.userService.currUser?.status;
+  }
+
+  becomeVIP(){
+    this.userService.becomeVIP();
+    this.userStatus = this.userService.currUser?.status;
   }
 
 }

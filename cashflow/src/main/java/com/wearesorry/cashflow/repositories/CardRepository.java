@@ -14,11 +14,14 @@ import java.util.UUID;
 public interface CardRepository extends CrudRepository<Card, UUID> {
 
     @Query("SELECT c from Card c where c.user.id = :userId")
-    Iterable<Card> getAllUsersCards(@Param("userId") UUID userId);
+    Iterable<Card> getAllUserCards(@Param("userId") UUID userId);
 
     @Modifying
     @Transactional
     @Query("UPDATE Card c set c.amount = c.amount + :amount where c.id = :cardId")
     void updateAmount(@Param("amount") int amount, @Param("cardId") UUID cardId);
+
+    @Query("SELECT sum(amount) from Card c where c.user.id = :userId")
+    int getRemainingFunds(@Param("userId") UUID userId);
 
 }

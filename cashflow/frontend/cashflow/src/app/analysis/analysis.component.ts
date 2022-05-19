@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogVipComponent } from '../dialog-vip/dialog-vip.component';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-analysis',
@@ -10,7 +11,7 @@ import { DialogVipComponent } from '../dialog-vip/dialog-vip.component';
 export class AnalysisComponent implements OnInit {
 
   selected = 'option2';
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public userService: UserService) { }
 
   ngOnInit(): void {
   }

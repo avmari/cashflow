@@ -11,12 +11,12 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   becomeVIP(){
-    this.http.post(`api/users/VIP`, this.currUser).subscribe( (value: User) => { 
+    this.http.post(`api/users/requestVIP`, this.currUser).subscribe( (value: User) => { 
       this.currUser = value; });
   }
 
   signIn(user: User){
-    return this.http.post(`api/users/signin`, user);
+    return this.http.post(`api/users/signIn`, user);
   }
 
 }

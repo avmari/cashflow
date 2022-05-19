@@ -22,8 +22,8 @@ public class CardServiceImpl implements CardService{
     }
 
     @Override
-    public Iterable<Card> getAllUsersCards(UUID userId) {
-        return this.cardRepository.getAllUsersCards(userId);
+    public Iterable<Card> getAllUserCards(UUID userId) {
+        return this.cardRepository.getAllUserCards(userId);
     }
 
     @Override
@@ -35,4 +35,10 @@ public class CardServiceImpl implements CardService{
     public void updateAmount(int amount, UUID cardId) {
         this.cardRepository.updateAmount(amount, cardId);
     }
+
+    @Override
+    public int getRemainingFunds(UUID userId){
+        return this.cardRepository.getRemainingFunds(userId);
+    }
+
 }

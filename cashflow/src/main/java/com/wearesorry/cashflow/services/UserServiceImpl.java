@@ -42,6 +42,11 @@ public class UserServiceImpl implements UserService{
         return this.userRepository.findById(userId);
     }
 
+    @Override
+    public Iterable<User> getUsersWithRequestedStatus(){
+        return this.userRepository.getUsersWithRequestedStatus();
+    }
+
     public boolean canRegister(String name, String email) {
         if (!userRepository.findByName(name).isEmpty()) {
             return false;

@@ -12,4 +12,5 @@ public interface UserService {
     boolean canRegister(String name, String email);
     Optional<User> findByEmail(String email);
     Optional<User> getUser(UUID userId);
+    Iterable<User> getUsersWithRequestedStatus();
 }

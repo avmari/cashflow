@@ -14,7 +14,7 @@ import java.util.UUID;
 public interface SphereRepository extends CrudRepository<Sphere, UUID> {
 
     @Query("SELECT s from Sphere s where s.user.id = :userId")
-    Iterable<Sphere> getAllUsersSpheres(@Param("userId") UUID userId);
+    Iterable<Sphere> getAllUserSpheres(@Param("userId") UUID userId);
 
     @Modifying
     @Transactional

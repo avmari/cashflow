@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { CreateCardComponent } from '../create-card/create-card.component';
 import { CreateSphereComponent } from '../create-sphere/create-sphere.component';
 import { DialogVipComponent } from '../dialog-vip/dialog-vip.component';
+import { CardService } from '../services/card.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-budget',
@@ -10,10 +12,15 @@ import { DialogVipComponent } from '../dialog-vip/dialog-vip.component';
   styleUrls: ['./budget.component.css']
 })
 export class BudgetComponent implements OnInit {
+  totalAmountSpent: number = 0;
+  remainingFunds: number = 0;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public userService: UserService, private cardService: CardService) { }
 
   ngOnInit(): void {
+    this.cardService.getRemainingFunds().subscribe((data: number) => {
+      this.remainingFunds = data;
+    })
   }
 
   createVIPDialog(){

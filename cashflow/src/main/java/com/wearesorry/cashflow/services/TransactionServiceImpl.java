@@ -39,4 +39,10 @@ public class TransactionServiceImpl implements TransactionService {
         return null;
         //return this.transactionRepository.getAllTransactionsByUser(userId);
     }
+
+    @Override
+    public int getTotalAmountSpent(UUID userId){
+        return this.transactionRepository.getTotalAmountSpent(userId);
+    }
+
 }

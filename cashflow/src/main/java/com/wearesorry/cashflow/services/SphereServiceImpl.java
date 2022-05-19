@@ -22,8 +22,8 @@ public class SphereServiceImpl implements SphereService{
     }
 
     @Override
-    public Iterable<Sphere> getAllUsersSpheres(UUID userId) {
-        return this.sphereRepository.getAllUsersSpheres(userId);
+    public Iterable<Sphere> getAllUserSpheres(UUID userId) {
+        return this.sphereRepository.getAllUserSpheres(userId);
     }
 
     @Override

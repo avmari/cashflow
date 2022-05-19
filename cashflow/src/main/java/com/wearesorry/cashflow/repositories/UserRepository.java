@@ -21,4 +21,7 @@ public interface UserRepository extends CrudRepository<User, UUID> {
     @Query("UPDATE User us set us.status = :newStatus where us.id = :userId")
     void updateStatus(@Param("newStatus") int newStatus, @Param("userId") UUID userId);
 
+    @Query("SELECT us from User us where us.status = 2")
+    Iterable<User> getUsersWithRequestedStatus();
+
 }

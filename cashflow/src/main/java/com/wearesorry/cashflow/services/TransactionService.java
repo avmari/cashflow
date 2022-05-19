@@ -8,4 +8,5 @@ public interface TransactionService {
     Transaction save(Transaction transaction);
     Iterable<Transaction> getAllTransactionsBySphere(UUID sphereId);
     Iterable<Transaction> getAllTransactionsByUser(UUID userId);
+    int getTotalAmountSpent(UUID userId);
 }

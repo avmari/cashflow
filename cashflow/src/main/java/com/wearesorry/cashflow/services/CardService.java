@@ -6,7 +6,8 @@ import java.util.UUID;
 
 public interface CardService {
     Card save(Card card);
-    Iterable<Card> getAllUsersCards(UUID userId);
+    Iterable<Card> getAllUserCards(UUID userId);
+    int getRemainingFunds(UUID userId);
     void deleteById(UUID id);
     void updateAmount(int amount, UUID cardId);
 }
