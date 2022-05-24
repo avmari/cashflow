@@ -8,46 +8,38 @@
 </div>
 <div class="text">Period: </div>
 
-<input type="date"/>
-<input type="date"/>
+<input type="date" [(ngModel)]="beginning" (change)="updateGraphics()">
+<input type="date" [(ngModel)]="ending" (change)="updateGraphics()">
 
 <div class="img">
     <div>
         <ngx-charts-bar-vertical
-          [view]="view"
+          [view]="[500, 300]"
           [scheme]="colorScheme"
-          [legend]="legend"
-          [showXAxisLabel]="showXAxisLabel"
-          [showYAxisLabel]="showYAxisLabel"
-          [xAxis]="xAxis"
-          [yAxis]="yAxis"
+          [legend]="false"
+          [showXAxisLabel]="true"
+          [showYAxisLabel]="true"
+          [xAxis]="true"
+          [yAxis]="true"
           [xAxisLabel]="xAxisLabel"
           [yAxisLabel]="yAxisLabel"
           [results]="expenses">
         </ngx-charts-bar-vertical>
     </div>
-    <img src="assets/d1.jpg">
 </div>
 
 
-<div class="text">Sphere: </div>
-<mat-form-field>
-<mat-label>Select a sphere:</mat-label>
-<mat-select [(value)]="selected">
-    <mat-option value="Food">Food</mat-option>
-    <mat-option value="Home">Home</mat-option>
-    <mat-option value="Car">Car</mat-option>
-    <mat-option value="Self care">Self care</mat-option>
-    <mat-option value="Technic">Technic</mat-option>
-    <mat-option value="Pet">Pet</mat-option>
-    <mat-option value="Entertainment">Entertainment</mat-option>
-    <mat-option value="More">More</mat-option>
-</mat-select>
-</mat-form-field>
-<button class="button btn">Ok</button>
+<div class="text">Spheres: </div>
 
 <div class="img">
-    <img src="assets/d1.jpg">
+    <ngx-charts-pie-chart
+      [view]="[500, 300]"
+      [scheme]="'forest'"
+      [results]="expenseDistribution"
+      [legend]="false"
+      [labels]="false"
+      [doughnut]="true">
+    </ngx-charts-pie-chart>
 </div>
   
 

@@ -1,5 +1,5 @@
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCardComponent } from '../create-card/create-card.component';
 import { CreateSphereComponent } from '../create-sphere/create-sphere.component';
@@ -53,7 +53,6 @@ export class BudgetComponent implements OnInit {
       card: event.previousContainer.data[event.previousIndex], 
       spheres: this.spheres 
     };
-    console.log(data);
     this.createTransactionDialog(data);
   }
 

@@ -1,6 +1,7 @@
 package com.wearesorry.cashflow.services;
 
 import com.wearesorry.cashflow.entities.Transaction;
+import com.wearesorry.cashflow.projections.ExpenseDistribution;
 import com.wearesorry.cashflow.projections.Expenses;
 import com.wearesorry.cashflow.repositories.TransactionRepository;
 import lombok.AllArgsConstructor;
@@ -8,7 +9,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Service
@@ -37,19 +38,18 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public Iterable<Transaction> getAllTransactionsByUser(UUID userId) {
-        return null;
-        //return this.transactionRepository.getAllTransactionsByUser(userId);
-    }
-
-    @Override
     public int getTotalAmountSpent(UUID userId){
         return this.transactionRepository.getTotalAmountSpent(userId);
     }
 
     @Override
-    public Iterable<Expenses> getExpenses(UUID userId){
-        return this.transactionRepository.getExpenses(userId);
+    public Iterable<Expenses> getExpenses(UUID userId,  LocalDate beginning, LocalDate ending){
+        return this.transactionRepository.getExpenses(userId, beginning, ending);
+    }
+
+    @Override
+    public Iterable<ExpenseDistribution> getExpenseDistribution(UUID userId, LocalDate beginning, LocalDate ending){
+        return this.transactionRepository.getExpenseDistribution(userId, beginning, ending);
     }
 
 }

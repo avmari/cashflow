@@ -14,7 +14,11 @@ export class TransactionService {
     return this.http.post(`api/transactions/createTransaction`, transaction);
   }
 
-  getExpenses(){
-    return this.http.get(`api/transactions/getExpenses/${this.userService.currUser?.id}`);
+  getExpenses(beginning: Date, ending: Date){
+    return this.http.get(`api/transactions/getExpenses/${this.userService.currUser?.id}/${beginning}/${ending}`);
+  }
+
+  getExpenseDistribution(beginning: Date, ending: Date){
+    return this.http.get(`api/transactions/getExpenseDistribution/${this.userService.currUser?.id}/${beginning}/${ending}`);
   }
 }

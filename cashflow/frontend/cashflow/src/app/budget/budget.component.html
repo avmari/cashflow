@@ -2,7 +2,7 @@
 <div class="top-menu">
     <ul class="menu-main">
       <li><a routerLink="/budget" class="current">Budget</a></li>
-      <li><a routerLink="/analysis">Analysis</a></li>
+      <li *ngIf="this.userService.currUser?.status != 0 && this.userService.currUser?.status != 2"><a routerLink="/analysis">Analysis</a></li>
       <li *ngIf="this.userService.currUser?.status != 1"><button (click)="createVIPDialog()">VIP</button></li>
       <li><a routerLink="">Sign out</a></li>
     </ul>

@@ -11,19 +11,15 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./analysis.component.css']
 })
 export class AnalysisComponent implements OnInit {
-  expenses: any[] = [];
-  view: any = [500, 300];
 
-  legend: boolean = false;
-  showLabels: boolean = true;
-  animations: boolean = true;
-  xAxis: boolean = true;
-  yAxis: boolean = true;
-  showYAxisLabel: boolean = true;
-  showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Month';
-  yAxisLabel: string = 'Expenses';
-  timeline: boolean = true;
+  expenses: any[] = [];
+  expenseDistribution: any[] = [];
+
+  beginning: Date = new Date();
+  ending: Date = new Date();
+
+  yAxisLabel: string = "Expenses";
+  xAxisLabel: string = "Date";
 
   colorScheme: Color = {
     name: 'myScheme',
@@ -32,17 +28,20 @@ export class AnalysisComponent implements OnInit {
     domain: ['#00a86b'],
   };
 
-  selected = 'option2';
   constructor(public dialog: MatDialog, public userService: UserService, 
-    private transactionService: TransactionService) { }
+    private transactionService: TransactionService) {
+     }
 
   ngOnInit(): void {
-    this.getData();
   }
 
   getData(){
-    this.transactionService.getExpenses().subscribe((data: any) => {
+    this.transactionService.getExpenses(this.beginning, this.ending).subscribe((data: any) => {
       this.expenses = data;
+    })
+    this.transactionService.getExpenseDistribution(this.beginning, this.ending).subscribe((data: any) => {
+      this.expenseDistribution = data;
+      console.log(data);
     })
   }
 
@@ -51,5 +50,9 @@ export class AnalysisComponent implements OnInit {
       height: '200px',
       width: '600px',
     });
+  }
+
+  updateGraphics(){
+    this.getData();
   }
 }
