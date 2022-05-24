@@ -26,4 +26,5 @@ public class Sphere {
     private String name;
     private int amount;
 
+    private String icon;
 }

@@ -47,10 +47,7 @@ public class UserServiceImpl implements UserService{
         return this.userRepository.getUsersWithRequestedStatus();
     }
 
-    public boolean canRegister(String name, String email) {
-        if (!userRepository.findByName(name).isEmpty()) {
-            return false;
-        }
+    public boolean canRegister(String email) {
         if (!userRepository.findByEmail(email).isEmpty()) {
             return false;
         }

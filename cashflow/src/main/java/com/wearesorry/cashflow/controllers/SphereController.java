@@ -21,7 +21,7 @@ public class SphereController {
         return this.sphereService.save(sphere);
     }
 
-    @GetMapping("getAllUserSpheres/{userId}")
+    @GetMapping("/getAllUserSpheres/{userId}")
     public Iterable<Sphere> getAllUserSpheres(@PathVariable UUID userId){
         return this.sphereService.getAllUserSpheres(userId);
     }

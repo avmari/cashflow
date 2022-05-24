@@ -14,7 +14,20 @@ export class CardService {
     return this.http.get<number>(`api/users/getRemainingFunds/${this.userService.currUser?.id}`);
   }
 
+  getTotalAmountSpent(){
+    return this.http.get<number>(`api/users/getTotalAmountSpent/${this.userService.currUser?.id}`)
+  }
+
   createCard(card: Card){
     return this.http.post<Card>(`api/cards/createCard/`, card);
   }
+
+  getAllUserCards(){
+    return this.http.get<Card[]>(`api/cards/getAllUserCards/${this.userService.currUser?.id}`);
+  }
+
+  editCard(card: Card){
+    return this.http.post<Card>(`api/cards/editCard/`, card);
+  }
+
 }

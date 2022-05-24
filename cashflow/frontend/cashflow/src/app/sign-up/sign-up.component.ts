@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from '../models/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,10 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
-  submitted = false;
-  loading = false;
+  isSignUpFailed = false;
   
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, private userService: UserService, 
+    private router: Router) { 
     this.signUpForm = this.formBuilder.group({
       username: ['', Validators.required],
       email: ['', Validators.email],
@@ -24,8 +27,31 @@ export class SignUpComponent implements OnInit {
 
   get f() { return this.signUpForm.controls; }
 
-  onSubmit(){
+  get email() {
+    return this.signUpForm.get("email");
+  }
 
+  get username() {
+    return this.signUpForm.get("username");
+  }
+
+  get password() {
+    return this.signUpForm.get("password");
+  }
+
+
+  onSubmit(){
+    let user: User = new User();
+    user.email = this.email?.value;
+    user.name = this.username?.value;
+    user.password = this.password?.value;
+
+    this.userService.signUp(user).subscribe((data) => {
+      this.router.navigateByUrl("/sign-in");
+    },
+    (error) => {
+      this.isSignUpFailed = true;
+    })
   }
 
 }

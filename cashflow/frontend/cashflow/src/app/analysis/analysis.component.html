@@ -12,7 +12,20 @@
 <input type="date"/>
 
 <div class="img">
-    <img src="assets/d1.jpg">
+    <div>
+        <ngx-charts-bar-vertical
+          [view]="view"
+          [scheme]="colorScheme"
+          [legend]="legend"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxis]="xAxis"
+          [yAxis]="yAxis"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel"
+          [results]="expenses">
+        </ngx-charts-bar-vertical>
+    </div>
     <img src="assets/d1.jpg">
 </div>
 

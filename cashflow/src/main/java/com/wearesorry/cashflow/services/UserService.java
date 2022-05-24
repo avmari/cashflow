@@ -9,7 +9,7 @@ public interface UserService {
     User save(User user);
     Iterable<User> getAllUsers();
     void updateStatus(int newStatus, UUID userId);
-    boolean canRegister(String name, String email);
+    boolean canRegister(String email);
     Optional<User> findByEmail(String email);
     Optional<User> getUser(UUID userId);
     Iterable<User> getUsersWithRequestedStatus();

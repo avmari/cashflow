@@ -19,4 +19,8 @@ export class UserService {
     return this.http.post(`api/users/signIn`, user);
   }
 
+  signUp(user: User){
+    return this.http.post(`api/users/signUp`, user);
+  }
+
 }

@@ -24,4 +24,9 @@ public interface CardRepository extends CrudRepository<Card, UUID> {
     @Query("SELECT sum(amount) from Card c where c.user.id = :userId")
     int getRemainingFunds(@Param("userId") UUID userId);
 
+    @Modifying
+    @Transactional
+    @Query("UPDATE Card c set c.amount = c.amount + :amount, c.name = :name where c.id = :cardId")
+    void editCard(@Param("name") String name, @Param("amount") int amount, @Param("cardId") UUID cardId);
+
 }

@@ -11,7 +11,7 @@ import { UserService } from '../services/user.service';
 })
 export class SignInComponent implements OnInit {
   loginForm: FormGroup;
-  loginFailed = false;
+  isSignInFailed = false;
   
   constructor(private formBuilder: FormBuilder, public userService: UserService, 
     private router: Router) { 
@@ -41,13 +41,13 @@ export class SignInComponent implements OnInit {
     user.password = this.password?.value;
 
     this.userService.signIn(user).subscribe(
-      (data: any) => {
+      (data: User) => {
         this.userService.currUser = data;
         this.router.navigateByUrl("/budget");
       },
       (error: any) =>{
         console.log(error);
-        this.loginFailed = true;
+        this.isSignInFailed = true;
       }
     );
   }

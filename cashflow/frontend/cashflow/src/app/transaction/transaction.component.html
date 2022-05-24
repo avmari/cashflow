@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 mat-dialog-title>New transaction</h2>
+    <mat-dialog-content>
+        <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+                <mat-label for="amount">Amount:</mat-label>
+                <input type="number" formControlName="amount" class="form-control">
+                <mat-form-field style="margin-top: 20px;">
+                    <mat-label>Select a sphere:</mat-label>
+                    <mat-select formControlName="sphere">
+                        <mat-option *ngFor="let sphere of data.spheres" [value]="sphere">{{sphere.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            <div style="margin-top: 50px;">
+                <button type="submit" [disabled]="transactionForm.invalid" [mat-dialog-close]="true" class="btn btn-primary">
+                    Go through
+                </button>
+                <button class="button btn-close" [mat-dialog-close]="true">Close</button>
+            </div>
+        </form>
+    </mat-dialog-content>
+</div>
+    

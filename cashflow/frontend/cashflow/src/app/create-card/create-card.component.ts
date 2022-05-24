@@ -36,7 +36,8 @@ export class CreateCardComponent implements OnInit {
     let card: Card = { 
       user: this.userService.currUser,
       name: this.name?.value,
-      amount: this.amount?.value }
+      amount: this.amount?.value,
+      icon: "credit_card"}
     this.cardService.createCard(card).subscribe();
   }
 

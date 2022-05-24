@@ -8,25 +8,25 @@
     </ul>
 </div>
 
-
-<div style="text-align: left; margin-top: 40px;">
-<div class="group">
-    <button class="button-content">
-        <mat-icon>credit_card</mat-icon>
+<div style="text-align: left; margin-top: 40px;" cdkDropList cdkDropListOrientation="horizontal"
+    #cardsList="cdkDropList"
+    [cdkDropListData]="cards"
+    [cdkDropListConnectedTo]="[spheresList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+<div class="group" *ngFor="let card of cards">
+    <button class="button-content" cdkDrag (click)="createEditCardDialog(card)">
+        <mat-icon>{{ card.icon }}</mat-icon>
     </button>
-    <div style="margin-left: 40px;margin-top: 10px;">Card</div>
+    <div style="margin-left: 40px; margin-top: 10px;">{{ card.name }}</div>
+    <div style="margin-left: 40px; font-weight: bold;">{{ card.amount }}</div>
 </div> 
 <div class="group">
-    <button class="button-content"  (click)="createCardDialog()">
+    <button class="button-content" (click)="createCardDialog()">
         <mat-icon>add</mat-icon>
     </button>
     <div style="margin-left: 40px;margin-top: 10px;">Add card</div>
-</div> 
-<div class="group">
-    <button class="button-content">
-        <mat-icon>account_balance_wallet</mat-icon>
-    </button>
-        <div style="margin-left: 40px; margin-top: 10px;">Wallet</div>
+    <div style="margin-left: 40px;">&#160;</div>
 </div> 
 </div>
 
@@ -35,60 +35,25 @@
     <div class="text">Remaining funds: {{ remainingFunds }}</div>
 </div>
 
-<div style="text-align: left; margin-top: 50px;">
-    <div class="group">
+<div style="text-align: left; margin-top: 50px;" cdkDropList cdkDropListOrientation="horizontal"
+    #spheresList="cdkDropList"
+    [cdkDropListData]="spheres"
+    [cdkDropListConnectedTo]="[cardsList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="group" *ngFor="let sphere of spheres">
         <button class="button-content">
-            <mat-icon>shopping_basket</mat-icon>
+            <mat-icon>{{ sphere.icon }}</mat-icon>
         </button>
-        <div style="margin-left: 40px;margin-top: 10px;">Food</div>
-    </div> 
-    <div class="group">
-        <button class="button-content">
-            <mat-icon>home</mat-icon>
-        </button>
-        <div style="margin-left: 40px;margin-top: 10px;">Home</div>
-    </div>
-    <div class="group">
-        <button class="button-content">
-            <mat-icon>directions_car</mat-icon>
-        </button>
-        <div style="margin-left: 40px;margin-top: 10px;">Car</div>
-    </div>
-    <div class="group">
-        <button class="button-content">
-            <mat-icon>spa</mat-icon>
-        </button>
-        <div style="margin-left: 40px;margin-top: 10px;">Self care</div>
-    </div>
-    <div class="group">
-        <button class="button-content">
-            <mat-icon>computer</mat-icon>
-        </button>
-        <div style="margin-left: 40px;margin-top: 10px;">Technic</div>
-    </div>
-    <div class="group">
-        <button class="button-content">
-            <mat-icon>pets</mat-icon>
-        </button>
-        <div style="margin-left: 40px;margin-top: 10px;">Pet</div>
-    </div>
-    <div class="group">
-        <button class="button-content">
-            <mat-icon>star</mat-icon>
-        </button>
-        <div style="margin-left: 40px;margin-top: 10px;">Entertainment</div>
-    </div>
-    <div class="group">
-        <button class="button-content">
-            <mat-icon>more_horiz</mat-icon>
-        </button>
-        <div style="margin-left: 40px;margin-top: 10px;">More</div>
+        <div style="margin-left: 40px; margin-top: 10px;">{{ sphere.name }}</div>
+        <div style="margin-left: 40px; font-weight: bold;">{{ sphere.amount }}</div>
     </div> 
     <div class="group">
         <button class="button-content" (click)="createSphereDialog()">
             <mat-icon>add</mat-icon>
         </button>
-        <div style="margin-left: 40px;margin-top: 10px;">Add sphere</div>
+        <div style="margin-left: 40px; margin-top: 10px;">Add sphere</div>
+        <div style="margin-left: 40px;">&#160;</div>
     </div> 
 </div>
 

@@ -22,9 +22,14 @@ public class CardController {
         return this.cardService.save(card);
     }
 
-    @GetMapping("getAllUserCards/{userId}")
+    @GetMapping("/getAllUserCards/{userId}")
     public Iterable<Card> getAllUserCards(@PathVariable UUID userId){
         return this.cardService.getAllUserCards(userId);
+    }
+
+    @PostMapping("/editCard")
+    public void editCard(@RequestBody Card card){
+        this.cardService.editCard(card);
     }
 
 }

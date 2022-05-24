@@ -1,6 +1,6 @@
 import { User } from "./user";
 
-export class Card{
+export class Sphere{
     id?: string;
     user?: User;
     name?: string;

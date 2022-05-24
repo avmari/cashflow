@@ -15,10 +15,13 @@ import { AnalysisComponent } from './analysis/analysis.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CreateCardComponent } from './create-card/create-card.component';
 import { CreateSphereComponent } from './create-sphere/create-sphere.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TransactionComponent } from './transaction/transaction.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { EditCardComponent } from './edit-card/edit-card.component';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { HttpClientModule } from '@angular/common/http';
     AnalysisComponent,
     DialogVipComponent,
     CreateCardComponent,
-    CreateSphereComponent
+    CreateSphereComponent,
+    TransactionComponent,
+    EditCardComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatTabsModule,
     MatOptionModule,
     MatSelectModule,
-    MatDatepickerModule
+    DragDropModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

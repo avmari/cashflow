@@ -27,7 +27,7 @@ public class CashflowApplication {
 	@Bean
 	CommandLineRunner runner(UserService userService, TransactionService transactionService, CardService cardService, SphereService sphereService) {
 		return args -> {
-			if(userService.canRegister("admin","admin@gmail.com")) {
+			if(userService.canRegister("admin@gmail.com")) {
 				User user = userService.save(
 						new User(
 								UUID.randomUUID(),

@@ -1,12 +1,14 @@
 package com.wearesorry.cashflow.services;
 
 import com.wearesorry.cashflow.entities.Transaction;
+import com.wearesorry.cashflow.projections.Expenses;
 import com.wearesorry.cashflow.repositories.TransactionRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -43,6 +45,11 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public int getTotalAmountSpent(UUID userId){
         return this.transactionRepository.getTotalAmountSpent(userId);
+    }
+
+    @Override
+    public Iterable<Expenses> getExpenses(UUID userId){
+        return this.transactionRepository.getExpenses(userId);
     }
 
 }
